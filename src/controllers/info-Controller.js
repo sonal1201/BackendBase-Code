@@ -1,6 +1,11 @@
-async function info(req,res) {
-    return res.json({
-        message: "Hello pong"
+const { StatusCodes } = require("http-status-codes")
+
+async function info(req, res) {
+    return res.status(StatusCodes.OK).json({
+        success: true,
+        message: "Hello pong",
+        error: {},
+        data: {}
     })
 }
 
