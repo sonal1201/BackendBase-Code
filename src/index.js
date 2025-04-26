@@ -1,11 +1,14 @@
 const express = require('express');
-const { PORT } = require('./config');
 const app = express();
 
+// fileExports
+const apiRoute = require('./routes');
+const { PORT } = require('./config');
 
 
+app.use('/api',apiRoute)
 
 
 app.listen(PORT,()=>{
-    console.log("Server listening")
+    console.log("Server listening 3000")
 })
