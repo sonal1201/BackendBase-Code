@@ -47,9 +47,8 @@ async function getAllAirplanes(req, res) {
 
 async function getAirplaneByid(req, res) {
     try {
-        console.log(await req.body.id);
-        const airplane = await airPlaneService.getAirplaneByid(req.body.id)
-        
+        const airplane = await airPlaneService.getAirplaneByid(req.params.id)
+
         return res.status(200).json({
             success: true,
             message: "Successfully fetched the Airplane",
@@ -67,8 +66,29 @@ async function getAirplaneByid(req, res) {
     }
 }
 
+
+async function deleteAirplanebyId(req, res) {
+    try {
+        const airplane = await airPlaneService.deleteAirplane(req.params.id);
+        return res.status(200).json({
+            success: true,
+            message: "Successfully deleted the Airplane",
+            error: {},
+            data: airplane
+        })
+    } catch (error) {
+        return res.status(404).json({
+            success: false,
+            message: "something went wrong while deleting the airplane",
+            error: error,
+            data: {}
+        })
+    }
+}
+
 module.exports = {
     createAirplane,
     getAllAirplanes,
-    getAirplaneByid
+    getAirplaneByid,
+    deleteAirplanebyId
 }
