@@ -28,7 +28,7 @@ class CredRepo {
             throw error;
         }
     }
-    async get() {
+    async get(data) { 
         try {
             const res = await this.model.findByPk(data);
             return res;

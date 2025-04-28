@@ -22,4 +22,18 @@ async function getAllAirplanes() {
     }
 }
 
-module.exports = { createAirplane, getAllAirplanes }
+async function getAirplaneByid(data) {
+    try {
+        const airplane = await airplaneRepository.get(data);
+        return airplane
+    } catch (error) {
+        throw error;
+    }
+
+}
+
+
+
+
+
+module.exports = { createAirplane, getAllAirplanes, getAirplaneByid }
