@@ -1,9 +1,9 @@
 const CredRepo = require('./cred-repository')
-const { Flight } = require('../models');
+const { Airplane } = require('../models');
 
 class AirplaneRepository extends CredRepo {
     constructor() {
-        super(Flight)   // super basic call the constructor of parent class 
+        super(Airplane)   // super basic call the constructor of parent class 
     }
 
 }

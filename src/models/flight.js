@@ -14,13 +14,40 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Flight.init({
-    flightModel: {
+    flightNumber: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    airPlaneId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
+    },
+    departureAirportId: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
-    capacity: {
+    arrivalAirportId: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
+      allowNull: false
+    },
+    arrivalTime: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    departueTime: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    boardingGate: { type: DataTypes.STRING },
+    totalSeats: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
     sequelize,
